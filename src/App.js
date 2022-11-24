@@ -3,6 +3,7 @@ import { RouterProvider } from 'react-router-dom';
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import router from './routers/routingLink';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {

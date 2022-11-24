@@ -2,10 +2,11 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Contexts/UseContext';
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 const Registrar = () => {
+
 
     const navigat = useNavigate()
     //user jodi login ar age onno kono page jete cay tar jonno
@@ -29,34 +30,11 @@ const Registrar = () => {
         const name = from?.name?.value;
         const email = from?.email?.value;
         const password = from?.Password?.value;
-        const confirmPassword = from?.cPasswor?.value
+        const userPhoto = from?.photo?.value
+        console.log(userPhoto)
 
-        //password condition
-        const upper = /[A-Z]/;
-        var letter = /[a-z]/;
-        const number = /[0-9]/;
-        //all condition set 1 ++
-
-        if (password.length <= 6) {
+        if (password.length <= 5) {
             return setError("! Minimum 6 characters up required")
-
-        }
-
-        else if (!letter.test(password)) {
-            return setError("👉 Please make sure password includes an lowercase letter 👈.")
-
-
-        }
-        else if (!upper.test(password)) {
-            return setError("👉 Please make sure password includes an uppercase letter 👈.")
-        }
-        else if (!number.test(password)) {
-            return setError("👉 Please make sure Password Includes a digit/number 👈")
-
-
-        }
-        else if (password !== confirmPassword) {
-            return setError("👉 Please make sure passwords match.👈!")
 
         }
         else {
@@ -70,21 +48,14 @@ const Registrar = () => {
                 const user = result?.user;
                 console.log(user)
                 setTimeout(() => {
-                    navigat('/login')
+
                 }, 1500);
                 //Update User Name
-                upDateUser(name)
+                upDateUser(name, userPhoto)
                     .then(() => {
-
-                        //email varifay
-                        emailVerifiCations()
-                            .then(() => {
-                                alert('Send you Email verificationEmail Cheak now !')
-                                navigat('/login')
-                            })
-                            .catch(error => {
-                                console.log(error)
-                            })
+                        toast.success('login successfully')
+                        from.reset();
+                        navigat('/')
                     })
                     .catch(error => {
                         console.log(error);
@@ -136,6 +107,30 @@ const Registrar = () => {
                                     required />
                             </div>
                             <div>
+                                <div className='flex justify-between mb-2'>
+                                    <label htmlFor='confirm' className='text-sm'>
+                                        User Informations
+                                    </label>
+                                </div>
+                                <div className="flex justify-between gap-1">
+                                    <input
+                                        type='photo'
+                                        name='photo'
+                                        id='photo'
+                                        placeholder='user Photo'
+                                        className='w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900'
+                                        required />
+                                    <div className="dropdown dropdown-end">
+                                        <label tabIndex={0} className="btn m-1 text-[12px]">account type</label>
+                                        <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-gray-500 rounded-box w-52" required>
+                                            <li><a className='text-white hover:text-green-300'>User Account</a></li>
+                                            <li><a className='text-white hover:text-green-300'>Seller Account</a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div>
                                 <label htmlFor='email' className='block mb-2 text-sm'>
                                     Email address
                                 </label>
@@ -162,20 +157,7 @@ const Registrar = () => {
                                     className='w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900'
                                     required />
                             </div>
-                            <div>
-                                <div className='flex justify-between mb-2'>
-                                    <label htmlFor='confirm' className='text-sm'>
-                                        Confirm-password
-                                    </label>
-                                </div>
-                                <input
-                                    type='password'
-                                    name='cPasswor'
-                                    id='password'
-                                    placeholder='*******'
-                                    className='w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900'
-                                    required />
-                            </div>
+
                             <p className='text-center text-red-400 text-xs pb-1'>{error}</p><p className='text-center text-green-500 text-xs pb-1'>{successRegistion}</p>
                         </div>
                         <div className='space-y-2'>

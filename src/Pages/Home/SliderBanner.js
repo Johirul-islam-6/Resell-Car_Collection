@@ -17,7 +17,7 @@ const SliderBanner = ({ item }) => {
                 {/* --------------------btn---------- */}
                 <div className="absolute flex justify-start transform -translate-y-1/2 left-5 top-[338px] md:top-[468px] md:px-20 z-50">
                     <div className="flex">
-                        <Link to={'/all-services'} > <button className="px-3 py-1 md:px-12 md:py-3 bg-[#a31f80] hover:bg-[#cf23a1] md:text-[18px] rounded-lg mr-5 text-white">All Services</button></Link>
+                        <Link to={'/cetogoris'} > <button className="px-3 py-1 md:px-12 md:py-3 bg-[#a31f80] hover:bg-[#cf23a1] md:text-[18px] rounded-lg mr-5 text-white">All Services</button></Link>
                         <Link to={'/my-reviews'} ><button className="px-3 py-2  md:px-16 md:py-3 bg-[#a31f80] hover:bg-[#cf23a1] md:text-[18px] rounded-lg text-white">My Reviews</button></Link>
                     </div>
                 </div>

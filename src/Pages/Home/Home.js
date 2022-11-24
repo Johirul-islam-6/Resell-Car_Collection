@@ -28,18 +28,18 @@ const Home = () => {
 
     return (
         <>
-            <section className='mb-0 h-[auto] mt-[65px] '>
+            <section className='mb-0 h-[auto] mt-[62px] '>
                 <div className="carousel w-full ">
-                    {/* {
-                        bannerImage.map((item, i) => <SliderBanner key={i} item={item}></SliderBanner>)
-                    } */}
+                    {
+                        bannerImage?.map((item, i) => <SliderBanner key={i} item={item}></SliderBanner>)
+                    }
 
                 </div>
 
 
                 <div className="relative w-full flex gap-4 py-6 overflow-x-auto">
                     {
-                        sliderImag.map((img, i) => <img key={i} className="h-48 aspect-video rounded-sm object-cover object-center dark:bg-gray-500" src={img?.img} alt="Image 1" />)
+                        sliderImag?.map((img, i) => <img key={i} className="h-48 aspect-video rounded-sm object-cover object-center dark:bg-gray-500" src={img?.img} alt="Image 1" />)
                     }
                 </div>
             </section>

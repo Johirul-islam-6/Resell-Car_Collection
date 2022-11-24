@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 // import Logos from '../components/logo512.png'
 import { AuthContext } from '../Contexts/UseContext';
 
@@ -13,14 +14,17 @@ const Header = () => {
 
     const logoutBtn = () => {
         userLogOut()
-            .then(() => console.log("user Log out!"))
+            .then(() => {
+
+                toast.success('User Log out successfully')
+            })
             .catch(error => console.log(error))
     }
 
     return (
         <>
 
-            <div className="navbar bg-slate-700 lg:px-10 fixed top-0">
+            <div className="navbar bg-slate-700 lg:px-10 fixed top-0 ">
                 {/* -------------navbar start------------ */}
                 <div className="navbar-start ">
                     {/* ---------logo show lg:--------- */}
@@ -41,10 +45,17 @@ const Header = () => {
                             <Link to='/' className='btn mx-6'>Home</Link>
                             <Link to='/cetogoris' className='btn'>Car Cetagoris</Link>
                             <Link to='/block' className='btn'>Block</Link>
-                            <Link to='skill' className='btn mx-6'>Skill</Link>
-                            <Link to='/project' className='btn mx-6'>My Project</Link>
-                            <Link to='/registrar' className='btn mx-6'>Registrar</Link>
-                            <Link to='/login' className='btn'>Login</Link>
+                            <Link to='/dasbord/all-booking' className='btn mx-6'>Dashbord</Link>
+                            <Link to='/admin' className='btn'>Admin panel</Link>
+                            {
+                                user?.uid ?
+                                    <Link to='/' onClick={logoutBtn} id='logout' className='btn mx-4'>Log out</Link>
+
+                                    : <>
+                                        <Link to='/registrar' className='btn mx-6'>Registrar</Link>
+                                        <Link to='/login' className='btn'>Login</Link>
+                                    </>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -69,14 +80,14 @@ const Header = () => {
 
                             <li tabIndex={0} className=''>
                                 <Link to='/development' className='btn'>
-                                    Development
+                                    Dahs Bord
                                     <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                                 </Link>
 
                                 {/* -----inside ui link droup-down menu----- */}
                                 <ul className="px-2 pb-2 bg-slate-700 w-44">
-                                    <Link to='skill' className='btn mx-6'>Skill</Link>
-                                    <Link to='/project' className='btn mx-6'>My Project</Link>
+                                    <Link to='/dasbord/all-booking' className='btn mx-6'>All Users</Link>
+                                    <Link to='/admin' className='btn mx-6'>Admin panel</Link>
                                 </ul>
                                 {/* -----inside ui link droup-down menu end----- */}
                             </li>
