@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,100&family=Gentium+Book+Plus:ital@1&family=Poppins:wght@500&family=Rubik:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,100&family=Gentium+Book+Plus:ital@1&family=Poppins:wght@500&family=Rubik:ital,wght@1,500&family=Source+Sans+Pro:wght@400;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Barlow Condensed', sans-serif; */
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.reGistration{
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+/* ---------------navbar-------------- */
+.lg-header a {
+  color: rgb(255, 255, 255);
+  font-size: 16px !important;
+  /* font-weight: 100 !important; */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out !important;
+}
+
+@media screen and (max-width: 400px) {
+  #logout {
+    font-size: 12px !important;
+    color: aqua !important;
+  }
+
+  .imates {
+    width: 30px !important;
+  }
+
+  .logo-text {
+    font-size: 18px !important;
+    margin: 0 1px !important;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.lg-header a:hover {
+  color: rgb(228, 161, 18);
 }
 
-.App-link {
-  color: #61dafb;
+.lg-header .btn {
+  background-color: unset !important;
+  border: none !important;
+  padding: 0 !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hiside {
+  border-radius: unset !important;
+  margin-top: 9px !important;
 }
+
+.hidden {
+  cursor: pointer;
+
+}
+
+#avatar {
+  cursor: pointer;
+}
+
+.navbar {
+  z-index: 1000 !important;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+

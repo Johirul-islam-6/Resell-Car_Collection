@@ -1,0 +1,29 @@
+[
+    {
+        "title": "Rose Royce Car",
+        "paragrap": "Presenting the most capable Rolls-Royce ever — an imposing force with unforeseen finesse. A conduit for absolute control. Behind its wheel, the velvet night welcomes you in and the city becomes your personal playground.",
+        "img": "https://www.rolls-roycemotorcars.com/content/dam/rrmc/marketUK/rollsroycemotorcars_com/black-badge-ghost-2021/page-components/BB_RR21_HERO_D.jpg/jcr:content/renditions/cq5dam.web.1242.webp",
+        "rating": "3%",
+        "id": "1",
+        "privece": "4",
+        "next": "2"
+    },
+    {
+        "title": "Tesla Car",
+        "paragrap": "esla was incorporated in July 2003 by Martin Eberhard and Marc Tarpenning as Tesla Motors. The company's name is a tribute to inventor and electrical engineer Nikola Tesla. ",
+        "img": "https://digitalassets-shop.tesla.com/image/upload/f_auto,q_auto/v1/content/dam/tesla/teslaweb/homepage/MS_web.jpg",
+        "rating": "4%",
+        "id": "2",
+        "privece": "1",
+        "next": "3"
+    },
+    {
+        "title": "BMW Car",
+        "paragrap": "The story of the BMW 1602 Electric carries an inspiring message through time: Great change begins with a small step. This summer, the iconic vehicle celebrates its 50th birthday at the European Championships Munich 2022, marking the first step for the BMW Group into the world of e-mobility.",
+        "img": "https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/sustainability/neuer-luxus/nl-00-teaser-square.jpg?imwidth=1024",
+        "rating": "5%",
+        "id": "3",
+        "privece": "2",
+        "next": "4"
+    }
+]
