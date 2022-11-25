@@ -10,6 +10,7 @@ import Block from "../Pages/Block/Block";
 import DashBordLayOut from "../Main/DashBordLayOut";
 import MyAppointment from "../Pages/Dash-Bord/MyAppointment";
 import AllBookinPresent from "../Pages/Dash-Bord/AllBookinPresent";
+import CategorieID from "../Pages/Car Categori/CategorieID";
 
 const router = createBrowserRouter([
 
@@ -23,8 +24,15 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/cetogoris',
-                element: <CarCategori />
+                path: '/cetegories',
+                element: <CarCategori />,
+                // loader: ({ params }) => fetch(`http://localhost:5000/cetegories/${params.id}`)
+
+            },
+            {
+                path: '/cetegories/:id',
+                element: <CategorieID />,
+                loader: ({ params }) => fetch(`http://localhost:5000/cetegories/${params.id}`)
             },
             {
                 path: '/block',

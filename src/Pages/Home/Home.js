@@ -5,6 +5,7 @@ import { FaArrowRight, FaGoogleWallet, FaSpaceShuttle } from 'react-icons/fa';
 import './home.css'
 import useTitle from '../../hook/useTitle';
 import SliderBanner from './SliderBanner';
+import UserBooking from './AllBooking/UserBooking';
 
 const Home = () => {
 
@@ -42,6 +43,12 @@ const Home = () => {
                         sliderImag?.map((img, i) => <img key={i} className="h-48 aspect-video rounded-sm object-cover object-center dark:bg-gray-500" src={img?.img} alt="Image 1" />)
                     }
                 </div>
+            </section>
+
+            {/* ----------------All Car Booking section----------------- */}
+
+            <section className='bg-gray-200 py-[30px]'>
+                <UserBooking></UserBooking>
             </section>
 
         </>

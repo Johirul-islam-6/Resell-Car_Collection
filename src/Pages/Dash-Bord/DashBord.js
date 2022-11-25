@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/UseContext';
+import useTitle from '../../hook/useTitle';
 
 const DashBord = () => {
+
+    useTitle('DashBord')
     const { user } = useContext(AuthContext);
     return (
         <div className="h-full p-3 space-y-2 w-60 dark:bg-gray-900 dark:text-gray-100">

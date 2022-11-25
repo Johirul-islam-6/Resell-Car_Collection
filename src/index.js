@@ -5,26 +5,29 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UseContext from './Contexts/UseContext';
 import { ToastContainer } from 'react-toastify';
+import { useQuery, useMutation, useQueryClient, QueryClient, QueryClientProvider, } from '@tanstack/react-query'
 
-
+const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <div className='max-w-7xl mx-auto'>
   <div className=''>
     <UseContext>
-      <ToastContainer
-        position="top-center"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
+        <App />
+      </QueryClientProvider>
     </UseContext>
   </div>
 );

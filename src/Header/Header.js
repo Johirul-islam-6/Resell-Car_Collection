@@ -43,7 +43,7 @@ const Header = () => {
                         </label>
                         <ul tabIndex={0} className="lg-header hiside menu menu-compact dropdown-content  p-2  shadow bg-slate-700  rounded-box w-60  lg:hidden">
                             <Link to='/' className='btn mx-6'>Home</Link>
-                            <Link to='/cetogoris' className='btn'>Car Cetagoris</Link>
+                            <Link to='/cetegories' className='btn'>Car Cetagoris</Link>
                             <Link to='/block' className='btn'>Block</Link>
                             <Link to='/dasbord/all-booking' className='btn mx-6'>Dashbord</Link>
                             <Link to='/admin' className='btn'>Admin panel</Link>
@@ -75,7 +75,7 @@ const Header = () => {
 
                         <ul className="lg-header menu menu-horizontal p-0">
                             <Link to='/' className='btn mx-6'>Home</Link>
-                            <Link to='/cetogoris' className='btn'>Car Cetagoris</Link>
+                            <Link to='/cetegories' className='btn'>Car Cetagoris</Link>
                             <Link to='/block' className='btn  mx-6'>Block</Link>
 
                             <li tabIndex={0} className=''>
