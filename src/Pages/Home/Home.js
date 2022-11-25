@@ -29,8 +29,8 @@ const Home = () => {
 
     return (
         <>
-            <section className='mb-0 h-[auto] mt-[62px] '>
-                <div className="carousel w-full ">
+            <section className='mb-0 h-[auto] mt-[62px] bg-gray-800 md:pb-5'>
+                <div className="carousel w-full bg-gray-500">
                     {
                         bannerImage?.map((item, i) => <SliderBanner key={i} item={item}></SliderBanner>)
                     }

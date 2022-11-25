@@ -15,10 +15,10 @@ const SliderBanner = ({ item }) => {
                     </div>
                 </div>
                 {/* --------------------btn---------- */}
-                <div className="absolute flex justify-start transform -translate-y-1/2 left-5 top-[338px] md:top-[468px] md:px-20 z-50">
+                <div className="absolute flex justify-start transform -translate-y-1/2 left-5 top-[288px] md:top-[468px] md:px-20 z-50">
                     <div className="flex">
-                        <Link to={'/cetogoris'} > <button className="px-3 py-1 md:px-12 md:py-3 bg-[#a31f80] hover:bg-[#cf23a1] md:text-[18px] rounded-lg mr-5 text-white">All Services</button></Link>
-                        <Link to={'/my-reviews'} ><button className="px-3 py-2  md:px-16 md:py-3 bg-[#a31f80] hover:bg-[#cf23a1] md:text-[18px] rounded-lg text-white">My Reviews</button></Link>
+                        <Link to={'/cetegories'} > <button className="px-3 py-1 md:px-12 md:py-3 bg-[#B2381B] hover:bg-[#da4722] md:text-[18px] rounded-lg mr-5 text-white">ALL SERVICES</button></Link>
+                        <Link to={'/my-reviews'} ><button className="px-3 py-1 md:px-12 md:py-3 bg-[#B2381B] hover:bg-[#cc411f] md:text-[18px] rounded-lg mr-5 text-white">ALL REVIEWS</button></Link>
                     </div>
                 </div>
                 <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-10 md:bottom-60 z-50">

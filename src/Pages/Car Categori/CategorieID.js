@@ -103,6 +103,7 @@ const CategorieID = () => {
                                         <a rel="noopener noreferrer" href="" className="block">
                                             <h3 className="text-xl font-semibold dark:text-violet-400">Model : {item?.carName.slice(0, 80)}</h3>
                                         </a>
+                                        <h1 className=''> Market Price : <span className='text-amber-200'>{item?.ResellPrice}. </span></h1>
                                         <h1 className=''> Resell Price : <span className='text-amber-200'>{item?.orginalPrice}. </span></h1>
                                         <p className="leading-snug dark:text-gray-400">{item?.text.slice(0, 250)}</p>
                                         <div className="flex justify-center mt-3" >

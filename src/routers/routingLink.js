@@ -11,6 +11,7 @@ import DashBordLayOut from "../Main/DashBordLayOut";
 import MyAppointment from "../Pages/Dash-Bord/MyAppointment";
 import AllBookinPresent from "../Pages/Dash-Bord/AllBookinPresent";
 import CategorieID from "../Pages/Car Categori/CategorieID";
+import Pement from "../Pages/Home/PementMethod/Pement";
 
 const router = createBrowserRouter([
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path: '/block',
                 element: <Block />
+            },
+            {
+                path: '/pement',
+                element: <Pement />
             },
 
             {

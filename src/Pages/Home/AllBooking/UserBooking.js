@@ -1,6 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useContext } from 'react';
+import { FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/UseContext';
 
 const UserBooking = () => {
@@ -15,12 +17,21 @@ const UserBooking = () => {
             return data;
         },
     })
-    console.log(MyBookingCar);
+    // console.log(MyBookingCar);
 
+    // Delete btn
+    const deleteBtn = (item) => {
+        console.log(item)
+    }
 
     return (
         <>
-            <h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center'>User Bookings <span className='text-amber-600'>Resell Cars</span> Collection </h1>
+            {
+                MyBookingCar.length && <h1 h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center'>User Bookings <span className='text-amber-600'>Resell Cars</span> Collection </h1>
+            }
+            {
+                !MyBookingCar?.length && <h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center'>User No <span className='text-amber-600'>Bookings Cars</span></h1>
+            }
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 md:px-12 px-5 justify-center items-center">
                 {
                     MyBookingCar?.map((item, i) =>
@@ -69,12 +80,8 @@ const UserBooking = () => {
 
                                         <span className='text-amber-600'> </span></a>
                                 </div>
-                                <div className="rating">
-                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400 w-4" />
-                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400 w-4" checked />
-                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400 w-4" />
-                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400 w-4" />
-                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400 w-4" />
+                                <div className="flex">
+                                    <button onClick={() => deleteBtn(item?._id)} className=" text-red-900 flex text-bold hover:text-red-600">Delete <span className='mt-[3px] text-[20px]'><FaTimes></FaTimes></span></button>
                                 </div>
                             </div>
                             <div className="space-y-4">
@@ -93,14 +100,14 @@ const UserBooking = () => {
                                     </div>
                                 </div>
                                 <div className="space-y-2">
-                                    <a rel="noopener noreferrer" href="" className="block">
+                                    <div className="block">
                                         <h3 className="text-xl font-semibold dark:text-[#bd108f]">Model : {item?.serviceName?.slice(0, 80)}</h3>
-                                    </a>
+                                    </div>
                                     <h1 className=''> Total Price : <span className='text-amber-200'>{item?.carPrice}. </span></h1>
                                     <p className="leading-snug dark:text-gray-400">{item?.productText?.slice(0, 120)} More..</p>
-                                    <div className="flex justify-between mt-3" >
-                                        <label className="btn md:px-12 bg-red-600 hover:bg-red-400 my-2">DElete Now</label>
-                                        <label className="btn md:px-12 bg-[#b92090] hover:bg-[#CF23A1] my-2">confirm Now</label>
+                                    <div className="flex justify-center mt-3" >
+
+                                        <Link to={`/pement`}> <label className="btn md:px-12 bg-[#B2381B] hover:bg-[#cf4523]  my-2">confirm Now</label></Link>
 
                                     </div>
                                 </div>

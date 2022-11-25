@@ -4,29 +4,20 @@ import { Link } from 'react-router-dom'
 
 const ErrorPage = () => {
     return (
-        <section className='flex items-center h-screen p-16 bg-gray-100 text-gray-900'>
-            <div className='container flex flex-col items-center justify-center px-5 mx-auto my-8'>
-                <div className='w-40 h-40 text-green-400' />
-                <div className='max-w-md text-center'>
-                    <h2 className='mb-8 font-extrabold text-9xl text-gray-500'>
-                        <span className='sr-only'>Error</span>
-                        <div className='flex justify-center items-center h-full'>
-                            4
-                            <div className='w-24 h-24 border-8 border-dashed rounded-full animate-spin mt-3 border-green-400'></div>
-                            4
-                        </div>
+        <div className="img h-[80vh] relative">
+            <img className='w-[100%] md:h-[100vh]' src="https://media.istockphoto.com/id/1304406740/photo/error-404-number-404-in-three-dimensions-next-to-a-security-magnifying-glass-on-a-yellow.jpg?b=1&s=170667a&w=0&k=20&c=moAzyHI3EdHNQeNTM8zrqQm-a6LHSJuUNbXbTldd8Qg=" alt="" />
+            <div className="flex absolute top-10 left-1/3 justify-center">
+                <div className="max-w-md text-center">
+                    <h2 className="mb-8 font-extrabold text-9xl dark:text-gray-600">
+                        <span className="sr-only">Error</span>404
                     </h2>
-                    <p className='text-2xl font-semibold md:text-3xl mb-8'>
-                        Sorry, we couldn't find this page.
-                    </p>
-                    <Link to='/'>
-                        <button classes='px-8 py-3 font-semibold rounded bg-white'>
-                            Back to homepage
-                        </button>
-                    </Link>
+                    <p className="text-2xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
+                    <p className="mt-4 mb-8 dark:text-gray-800">But dont worry, you can find plenty of other things on our homepage.</p>
+                    <Link to={'/'} rel="noopener noreferrer" className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Back to homepage</Link>
                 </div>
             </div>
-        </section>
+        </div>
+
     )
 }
 
