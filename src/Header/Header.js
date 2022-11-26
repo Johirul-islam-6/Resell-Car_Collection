@@ -15,7 +15,7 @@ const Header = () => {
     const [sellerss, setSeller] = useState()
 
 
-    const url = `https://assegnment-12-server-site.vercel.app/users/${user?.email}`;
+    const url = `http://localhost:5000/users/${user?.email}`;
 
     //    --------- TenStand Query------------
     // const { data: seller = [], } = useQuery({

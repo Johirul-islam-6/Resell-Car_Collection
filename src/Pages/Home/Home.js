@@ -6,6 +6,7 @@ import './home.css'
 import useTitle from '../../hook/useTitle';
 import SliderBanner from './SliderBanner';
 import UserBooking from './AllBooking/UserBooking';
+import AllProductImg from './All product img/AllProductImg';
 
 const Home = () => {
 
@@ -50,6 +51,11 @@ const Home = () => {
             <section className='bg-gray-200 py-[30px]'>
                 <UserBooking></UserBooking>
             </section>
+            <section className='bg-gray-200 py-[30px] '>
+                <AllProductImg></AllProductImg>
+            </section>
+
+
 
         </>
     );

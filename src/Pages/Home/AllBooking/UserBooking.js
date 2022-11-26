@@ -12,7 +12,7 @@ const UserBooking = () => {
     const { data: MyBookingCar = [] } = useQuery({
         queryKey: ['allBooking'],
         queryFn: async () => {
-            const res = await fetch(`https://assegnment-12-server-site.vercel.app/bookings/${user?.email}`);
+            const res = await fetch(`http://localhost:5000/advertic/${user?.email}`);
             const data = await res.json();
             return data;
         },
@@ -89,7 +89,7 @@ const UserBooking = () => {
                                     <img src={item?.productImg} alt="" className="block object-cover object-center w-full rounded-md h-[180px] dark:bg-gray-500" />
                                     <div className="flex items-center text-xs justify-between pt-2">
                                         <div className="block">
-                                            <span className='block'>Resive Date : {item?.resiveDate}</span>
+                                            <span className='block'>uplode Date : {item?.resiveDate}</span>
                                             <span className='mt-1'>{item?.sellerLocation} <span className='text-red-500'>To </span>{item?.Resivelocation}</span>
                                             <span className='block mb-1'>{item?.email}</span>
                                             <span className='block'>phone : {item?.phoneNumber}</span>

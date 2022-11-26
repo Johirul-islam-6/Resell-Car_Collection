@@ -30,13 +30,13 @@ const router = createBrowserRouter([
             {
                 path: '/cetegories',
                 element: <CarCategori />,
-                // loader: ({ params }) => fetch(`https://assegnment-12-server-site.vercel.app/cetegories/${params.id}`)
+                // loader: ({ params }) => fetch(`http://localhost:5000/cetegories/${params.id}`)
 
             },
             {
                 path: '/cetegories/:id',
                 element: <PrivetRoute><CategorieID /></PrivetRoute>,
-                loader: ({ params }) => fetch(`https://assegnment-12-server-site.vercel.app/cetegories/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/cetegories/${params.id}`)
             },
             {
                 path: '/block',

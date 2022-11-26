@@ -39,6 +39,7 @@ const AddProduct = () => {
         const resellPrice = form.orginalPrice?.value;
         const orginalPrice = form.ResellPrice?.value;
         const updateDate = form.Date?.value;
+        const phone = form.phone?.value;
         const message = form.message?.value;
 
         const order = {
@@ -53,13 +54,15 @@ const AddProduct = () => {
             date: updateDate,
             location: locations,
             message: message,
+            email,
+            phone: phone,
             sellerVerified: user?.emailVerified
 
         }
 
         console.log(order)
 
-        fetch('https://assegnment-12-server-site.vercel.app/productAdd', {
+        fetch('http://localhost:5000/productAdd', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -147,6 +150,11 @@ const AddProduct = () => {
                         <div className="col-span-full sm:col-span-3">
                             <label htmlFor="email" className="text-sm">Location</label>
                             <input onBlur={heldeleOnBlure} id="rating" name='location' type="text" placeholder="Location" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 text-black py-2 placeholder:px-5 placeholder:text-black px-3" required />
+                        </div>
+                        <br></br>
+                        <div className="col-span-full sm:col-span-3">
+                            <label htmlFor="email" className="text-sm">phone</label>
+                            <input onBlur={heldeleOnBlure} id="rating" name='phone' type="number" placeholder="phone" className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:border-gray-700 text-black py-2 placeholder:px-5 placeholder:text-black px-3" required />
                         </div>
                         {/* --service id */}
                         <br></br>

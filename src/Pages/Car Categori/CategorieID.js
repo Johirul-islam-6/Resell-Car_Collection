@@ -17,17 +17,6 @@ const CategorieID = () => {
     const [bookItem, setBookItem] = useState(null);
 
 
-    // const { data: service = [], } = useQuery({
-    //     queryKey: ['service'],
-    //     queryFn: async () => {
-    //         const res = await fetch(`https://assegnment-12-server-site.vercel.app/cetegories/${allService.id}`);
-    //         const data = await res.json();
-    //         return data;
-    //     }
-    // })
-
-    // console.log(service)
-
     return (
         <>
             <div data-theme="cupcake" className="container my-[60px]">
@@ -42,7 +31,7 @@ const CategorieID = () => {
                                         <a rel="noopener noreferrer" href="#" className="mb-0 capitalize dark:text-gray-100">
                                             {/* -----------user verified blue dote------------- */}
                                             {
-                                                user?.emailVerified ? <>
+                                                item?.sellerVerified ? <>
                                                     <div className="flex items-center space-x-3">
                                                         <div id='avatar' className="avatar online placeholder mr-2 ">
                                                             <div className="w-7 rounded-full ring ring-primary

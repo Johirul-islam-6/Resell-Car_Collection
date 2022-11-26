@@ -95,7 +95,7 @@ const Registrar = () => {
 
     const saveDatabsetInformation = (name, email, AccountType, userPhoto) => {
         const users = { name, email, AccountType, userPhoto }
-        fetch('https://assegnment-12-server-site.vercel.app/users', {
+        fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
