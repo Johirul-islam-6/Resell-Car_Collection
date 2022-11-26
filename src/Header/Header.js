@@ -105,15 +105,16 @@ const Header = () => {
                             <Link to='/block' className='btn  mx-6'>Block</Link>
 
                             {
-                                sellerss?.AccountType === 'User Account' ? <>
-                                    <h1></h1>
-
-                                </>
-                                    :
+                                user?.uid ?
                                     <>
                                         <Link to='/addProduct' className='btn mr-3'>Add products</Link>
                                         <Link to='/myProduct' className='btn mr-3'>My Product</Link>
                                     </>
+
+
+
+                                    :
+                                    <h1></h1>
                             }
 
                             <li tabIndex={0} className=''>

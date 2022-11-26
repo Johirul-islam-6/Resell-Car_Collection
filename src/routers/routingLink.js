@@ -44,11 +44,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addProduct',
-                element: <AddProduct />,
+                element: <PrivetRoute><AddProduct /></PrivetRoute>,
             },
             {
                 path: '/myProduct',
-                element: <MyProduct />
+                element: <PrivetRoute><MyProduct /></PrivetRoute>
             },
             {
                 path: '/pement',
