@@ -3,6 +3,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Contexts/UseContext';
 
 const UserBooking = () => {
@@ -18,7 +19,9 @@ const UserBooking = () => {
         },
     })
     // console.log(MyBookingCar);
-
+    const EiditeBtn = () => {
+        toast.info('Eidite Panding ...')
+    }
     // Delete btn
     const deleteBtn = (item) => {
         console.log(item)
@@ -107,7 +110,7 @@ const UserBooking = () => {
                                     <p className="leading-snug dark:text-gray-400">{item?.productText?.slice(0, 120)} More..</p>
                                     <div className="flex justify-center mt-3" >
 
-                                        <Link to={`/pement`}> <label className="btn md:px-12 bg-[#B2381B] hover:bg-[#cf4523]  my-2">confirm Now</label></Link>
+                                        <Link onClick={EiditeBtn}> <label className="btn md:px-12 bg-[#B2381B] hover:bg-[#cf4523]  my-2">edite product</label></Link>
 
                                     </div>
                                 </div>
