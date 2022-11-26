@@ -16,7 +16,7 @@ const Home = () => {
             .then(data => setBannerImage(data))
 
     }, [])
-    console.log(bannerImage);
+    // console.log(bannerImage);
     // ----Slider all image-----
     const [sliderImag, setImag] = useState([]);
 
@@ -25,7 +25,7 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setImag(data))
     }, [])
-    console.log(sliderImag)
+    // console.log(sliderImag)
 
     return (
         <>

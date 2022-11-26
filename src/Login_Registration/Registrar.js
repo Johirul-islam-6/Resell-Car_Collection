@@ -4,22 +4,34 @@ import { AuthContext } from '../Contexts/UseContext';
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import useTitle from '../hook/useTitle';
+import { useEffect } from 'react';
+import useToken from '../hook/useToken';
 
 
 const Registrar = () => {
 
     useTitle('Registration')
-    const navigat = useNavigate()
-    //user jodi login ar age onno kono page jete cay tar jonno
-    const location = useLocation()
 
+    //Jwt token
+    const [createteUserEmail, setUserEmail] = useState('')
+    const [token] = useToken(createteUserEmail)
+
+
+    const navigat = useNavigate()
+    const location = useLocation()
+    const prevLocation = location?.state?.from?.pathname || '/';
     //import data distracting in useContext(AuthContext)
     const { user, creatUser, emailVerifiCations, upDateUser, singInAutoGoogle, gitHubAutoLogIn, googleAutoLogIn } = useContext(AuthContext);
     // console.log(creatUser, emailVerifiCations, upDateUser)
-    console.log(user);
+
+    if (token) {
+        toast.info('jwt valid expiry date 1 day')
+        navigat(prevLocation, { replace: true })
+    }
 
     const [error, setError] = useState();
     const [successRegistion, setSuccess] = useState();
+    const [account, setUse] = useState('User Account')
 
     //all from submition
     const handelSubmitbtn = (event) => {
@@ -32,7 +44,7 @@ const Registrar = () => {
         const email = from?.email?.value;
         const password = from?.Password?.value;
         const userPhoto = from?.photo?.value
-        console.log(userPhoto)
+        const AccountType = account;
 
         if (password.length <= 5) {
             return setError("! Minimum 6 characters up required")
@@ -56,7 +68,7 @@ const Registrar = () => {
                     .then(() => {
                         toast.success('login successfully')
                         from.reset();
-                        navigat('/')
+                        saveDatabsetInformation(name, email, AccountType, userPhoto);
                     })
                     .catch(error => {
                         console.log(error);
@@ -66,6 +78,9 @@ const Registrar = () => {
             .catch(error => console.error(error))
 
     }
+
+
+
 
     //google auto log in part
     const googleBtnAutoLogIn = () => {
@@ -77,12 +92,31 @@ const Registrar = () => {
     }
     //Ghithub auto log in part
 
+    const saveDatabsetInformation = (name, email, AccountType, userPhoto) => {
+        const users = { name, email, AccountType, userPhoto }
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(users)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setUserEmail(email)
+
+            })
+
+
+    }
+
 
 
 
     return (
         <>
-            <div className='reGistration flex justify-center items-center pt-5 mx-5'>
+            <div className='reGistration flex justify-center items-center pt-5 mx-5 mt-[65px] mb-2'>
                 <div className='flex flex-col max-w-md  rounded-md sm:px-10 px-7 sm:py-3 py-1 bg-gray-100 text-gray-900'>
                     <div className='mb-3 text-center'>
                         <h1 className='mb-1 mt-1 text-4xl font-bold text-gray-900'><span className='text-amber-700'>Re</span>gister</h1>
@@ -124,8 +158,8 @@ const Registrar = () => {
                                     <div className="dropdown dropdown-end">
                                         <label tabIndex={0} className="btn m-1 text-[12px]">account type</label>
                                         <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-gray-500 rounded-box w-52" required>
-                                            <li><a className='text-white hover:text-green-300'>User Account</a></li>
-                                            <li><a className='text-white hover:text-green-300'>Seller Account</a></li>
+                                            <li id='myBtn' onClick={(e) => setUse(e.target.innerText)} className='text-white hover:text-green-300'> User Account</li>
+                                            <li onClick={(e) => setUse(e.target.innerText)} className='text-white hover:text-green-300'> Seller Account</li>
                                         </ul>
                                     </div>
 

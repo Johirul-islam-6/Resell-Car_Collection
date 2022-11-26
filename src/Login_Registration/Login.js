@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../Contexts/UseContext';
 import useTitle from '../hook/useTitle';
+import useToken from '../hook/useToken';
 
 const Login = () => {
 
@@ -10,11 +12,21 @@ const Login = () => {
     const { user, singInPage, singInAutoGoogle, forGetPass } = useContext(AuthContext)
 
     const [userEmail, setUserEmail] = useState('')
+    ///up forget option
+
+    const [logInUserToken, setLogInUserToken] = useState('');
+
+    const [token] = useToken(logInUserToken);
+
     //location
     const navigat = useNavigate()
     const location = useLocation()
     const froms = location?.state?.from?.pathname || '/';
-    console.log(froms)
+
+    if (token) {
+        navigat(froms, { replace: true })
+    }
+
     //login errow handeling show 
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
@@ -31,8 +43,8 @@ const Login = () => {
 
             .then(result => {
                 const user = result.user
-                console.log(user);
-                navigat(froms, { replace: true })
+                setLogInUserToken(email)
+
             })
         //if password did't match
         setTimeout(() => {
@@ -69,11 +81,14 @@ const Login = () => {
             })
     }
 
+
     useEffect(() => {
         if (user) {
             navigat(froms, { replace: true })
         }
     }, [user])
+
+
 
 
     return (
