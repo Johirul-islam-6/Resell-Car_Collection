@@ -24,6 +24,7 @@ const Login = () => {
     const froms = location?.state?.from?.pathname || '/';
 
     if (token) {
+        toast.info('Jwt token access ')
         navigat(froms, { replace: true })
     }
 

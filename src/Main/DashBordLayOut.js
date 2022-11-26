@@ -20,7 +20,7 @@ const DashBordLayOut = () => {
                     <div className="header flex w-[100%] justify-between mt-[80px] fixed top-2">
                         <label htmlFor="Rightdrawer" className=" drawer-button lg:hidden ml-2 flex "><span className='text-[18px] text-bold'>Drawer</span>  <span className='mt-2'><FaArrowRight></FaArrowRight></span></label>
 
-                        <h1 className='text-[18px] text-bold pr-5 lg:hidden'>All Presents</h1>
+                        <h1 className='text-[18px] text-bold pr-5 lg:hidden'>All Users</h1>
                     </div>
 
                     <Outlet></Outlet>

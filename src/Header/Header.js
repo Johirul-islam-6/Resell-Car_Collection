@@ -78,8 +78,11 @@ const Header = () => {
                             <Link to='/cetegories' className='btn'>Car Cetagoris</Link>
                             <Link to='/block' className='btn  mx-6'>Block</Link>
 
+                            <Link to='/addProduct' className='btn mr-3'>Add product</Link>
+                            <Link to='/myProduct' className='btn mr-3'>My Product</Link>
+
                             <li tabIndex={0} className=''>
-                                <Link to='/development' className='btn'>
+                                <Link to='/dasbord' className='btn'>
                                     Dahs Bord
                                     <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                                 </Link>

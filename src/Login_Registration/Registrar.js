@@ -21,8 +21,7 @@ const Registrar = () => {
     const location = useLocation()
     const prevLocation = location?.state?.from?.pathname || '/';
     //import data distracting in useContext(AuthContext)
-    const { user, creatUser, emailVerifiCations, upDateUser, singInAutoGoogle, gitHubAutoLogIn, googleAutoLogIn } = useContext(AuthContext);
-    // console.log(creatUser, emailVerifiCations, upDateUser)
+    const { user, creatUser, emailVerifiCations, upDateUser, singInAutoGoogle, gitHubAutoLogIn } = useContext(AuthContext);
 
     if (token) {
         toast.info('jwt valid expiry date 1 day')
@@ -84,10 +83,12 @@ const Registrar = () => {
 
     //google auto log in part
     const googleBtnAutoLogIn = () => {
-        googleAutoLogIn()
+
+        singInAutoGoogle()
             .then(restult => {
-                console.log('your are success Auto logIn in Google');
-                navigat('/courses')
+                navigat(prevLocation, { replace: true })
+                saveDatabsetInformation(account)
+                toast.success('user successfully login')
             }).catch(error => console.log(error))
     }
     //Ghithub auto log in part
@@ -215,7 +216,7 @@ const Registrar = () => {
                     </div>
                     <div className='flex justify-center space-x-4'>
 
-                        <button onClick={googleBtnAutoLogIn} aria-label='Log in with Google' className='p-3 rounded-sm'>
+                        <button onClick={() => googleBtnAutoLogIn(user)} aria-label='Log in with Google' className='p-3 rounded-sm'>
                             <h1 className='text-2xl'><FaGoogle></FaGoogle></h1>
                         </button>
 
