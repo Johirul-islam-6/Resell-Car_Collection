@@ -70,9 +70,21 @@ const Header = () => {
                         <ul tabIndex={0} className="lg-header hiside menu menu-compact dropdown-content  p-2  shadow bg-slate-700  rounded-box w-60  lg:hidden">
                             <Link to='/' className='btn mx-6'>Home</Link>
                             <Link to='/cetegories' className='btn'>Car Cetagoris</Link>
+                            <Link to='/dasbord/all-booking' className='btn'>All Users</Link>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <Link to='/addProduct' className='btn mr-5'>Add products</Link>
+                                        <Link to='/myProduct' className='btn mr-5'>My Product</Link>
+                                    </>
+
+
+
+                                    :
+                                    <h1></h1>
+                            }
+
                             <Link to='/block' className='btn'>Block</Link>
-                            <Link to='/dasbord/all-booking' className='btn mx-6'>Dashbord</Link>
-                            <Link to='/admin' className='btn'>Admin panel</Link>
                             {
                                 user?.uid ?
                                     <Link to='/' onClick={logoutBtn} id='logout' className='btn mx-4'>Log out</Link>
@@ -82,6 +94,7 @@ const Header = () => {
                                         <Link to='/login' className='btn'>Login</Link>
                                     </>
                             }
+
                         </ul>
                     </div>
                 </div>
@@ -100,15 +113,14 @@ const Header = () => {
                     <div className="hidden lg:block mr-5">
 
                         <ul className="lg-header menu menu-horizontal p-0">
-                            <Link to='/' className='btn mx-6'>Home</Link>
-                            <Link to='/cetegories' className='btn'>Car Cetagoris</Link>
-                            <Link to='/block' className='btn  mx-6'>Block</Link>
+                            <Link to='/' className='btn mx-5'>Home</Link>
+                            <Link to='/cetegories' className='btn mr-5'>Car Cetagoris</Link>
 
                             {
                                 user?.uid ?
                                     <>
-                                        <Link to='/addProduct' className='btn mr-3'>Add products</Link>
-                                        <Link to='/myProduct' className='btn mr-3'>My Product</Link>
+                                        <Link to='/addProduct' className='btn mr-5'>Add products</Link>
+                                        <Link to='/myProduct' className='btn mr-5'>My Product</Link>
                                     </>
 
 
@@ -118,7 +130,7 @@ const Header = () => {
                             }
 
                             <li tabIndex={0} className=''>
-                                <Link to='/dasbord' className='btn'>
+                                <Link to='/dasbord' className='btn mr-2'>
                                     Dahs Bord
                                     <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                                 </Link>
@@ -130,6 +142,7 @@ const Header = () => {
                                 </ul>
                                 {/* -----inside ui link droup-down menu end----- */}
                             </li>
+                            <Link to='/block' className='btn  mx-3'>Block</Link>
                             {
                                 user?.uid ?
                                     <Link to='/' onClick={logoutBtn} id='logout' className='btn mx-4'>Log out</Link>

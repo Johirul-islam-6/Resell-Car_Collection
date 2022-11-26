@@ -7,6 +7,7 @@ import useTitle from '../../hook/useTitle';
 import SliderBanner from './SliderBanner';
 import UserBooking from './AllBooking/UserBooking';
 import AllProductImg from './All product img/AllProductImg';
+import Revewsproduct from './reviews/Reviewsproduct';
 
 const Home = () => {
 
@@ -51,8 +52,9 @@ const Home = () => {
             <section className='bg-gray-200 py-[30px]'>
                 <UserBooking></UserBooking>
             </section>
-            <section className='bg-gray-200 py-[30px] '>
+            <section className='dark:bg-gray-800 py-[30px] mb-2'>
                 <AllProductImg></AllProductImg>
+                <Revewsproduct></Revewsproduct>
             </section>
 
 
