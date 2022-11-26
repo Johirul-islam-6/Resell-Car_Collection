@@ -12,7 +12,7 @@ const UserBooking = () => {
     const { data: MyBookingCar = [] } = useQuery({
         queryKey: ['allBooking'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/bookings/${user?.email}`);
+            const res = await fetch(`https://assegnment-12-server-site.vercel.app/bookings/${user?.email}`);
             const data = await res.json();
             return data;
         },

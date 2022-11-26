@@ -20,7 +20,7 @@ const CategorieID = () => {
     // const { data: service = [], } = useQuery({
     //     queryKey: ['service'],
     //     queryFn: async () => {
-    //         const res = await fetch(`http://localhost:5000/cetegories/${allService.id}`);
+    //         const res = await fetch(`https://assegnment-12-server-site.vercel.app/cetegories/${allService.id}`);
     //         const data = await res.json();
     //         return data;
     //     }

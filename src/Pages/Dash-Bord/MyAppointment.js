@@ -6,7 +6,7 @@ import { AuthContext } from '../../Contexts/UseContext';
 const MyAppointment = () => {
 
     const { user } = useContext(AuthContext);
-    const url = `http://localhost:5000/booking?email=${user?.email}`;
+    const url = `https://assegnment-12-server-site.vercel.app/booking?email=${user?.email}`;
 
     //    --------- TenStand Query------------
     const { data: booking = [], } = useQuery({
@@ -28,17 +28,17 @@ const MyAppointment = () => {
 
     return (
         <div className='md:mx-16 md:mt-24 mt-36'>
-            <h1 className='text-3xl text-bold text-black mb-10 text-center'>My Dental Booking</h1>
+            <h1 className='text-3xl text-bold text-black mb-10 text-center'>  Click Right site Navbar</h1>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
+                            <th> </th>
                             <th></th>
-                            <th>Name</th>
-                            <th>email</th>
-                            <th>Services</th>
-                            <th>Date</th>
+                            <th></th>
+                            <th>Waiting ..</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
