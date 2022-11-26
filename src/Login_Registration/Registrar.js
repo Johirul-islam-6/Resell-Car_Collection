@@ -86,7 +86,7 @@ const Registrar = () => {
 
         singInAutoGoogle()
             .then(restult => {
-                navigat(prevLocation, { replace: true })
+
                 saveDatabsetInformation(account)
                 toast.success('user successfully login')
             }).catch(error => console.log(error))

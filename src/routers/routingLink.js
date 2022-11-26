@@ -14,6 +14,7 @@ import CategorieID from "../Pages/Car Categori/CategorieID";
 import Pement from "../Pages/Home/PementMethod/Pement";
 import AddProduct from "../Pages/Add Product/AddProduct";
 import MyProduct from "../Pages/My product/MyProduct";
+import Admin from '../Pages/Admin/Admin'
 
 const router = createBrowserRouter([
 
@@ -62,6 +63,7 @@ const router = createBrowserRouter([
                 path: '/login',
                 element: <Login></Login>
             }
+
         ]
     },
     {
@@ -76,6 +78,10 @@ const router = createBrowserRouter([
             {
                 path: '/dasbord/all-booking',
                 element: <AllBookinPresent></AllBookinPresent>
+            },
+            {
+                path: '/dasbord/admin',
+                element: <Admin></Admin>
             },
         ]
     }

@@ -1,4 +1,6 @@
-import React, { useContext } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 // import Logos from '../components/logo512.png'
@@ -10,7 +12,31 @@ const Header = () => {
     //import userContext(AuthContext)
     const { user, userLogOut } = useContext(AuthContext)
 
+    const [sellerss, setSeller] = useState()
 
+
+    const url = `http://localhost:5000/users/${user?.email}`;
+
+    //    --------- TenStand Query------------
+    // const { data: seller = [], } = useQuery({
+    //     queryKey: ['seller', user],
+    //     queryFn: async () => {
+    //         const res = await fetch(url);
+    //         const data = await res.json();
+    //         return data;
+    //     }
+    // })
+
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setSeller(data)
+            })
+
+    }, [user?.email])
+
+    console.log(sellerss)
 
     const logoutBtn = () => {
         userLogOut()
@@ -78,8 +104,17 @@ const Header = () => {
                             <Link to='/cetegories' className='btn'>Car Cetagoris</Link>
                             <Link to='/block' className='btn  mx-6'>Block</Link>
 
-                            <Link to='/addProduct' className='btn mr-3'>Add product</Link>
-                            <Link to='/myProduct' className='btn mr-3'>My Product</Link>
+                            {
+                                sellerss?.AccountType === 'User Account' ? <>
+                                    <h1></h1>
+
+                                </>
+                                    :
+                                    <>
+                                        <Link to='/addProduct' className='btn mr-3'>Add products</Link>
+                                        <Link to='/myProduct' className='btn mr-3'>My Product</Link>
+                                    </>
+                            }
 
                             <li tabIndex={0} className=''>
                                 <Link to='/dasbord' className='btn'>
@@ -90,7 +125,7 @@ const Header = () => {
                                 {/* -----inside ui link droup-down menu----- */}
                                 <ul className="px-2 pb-2 bg-slate-700 w-44">
                                     <Link to='/dasbord/all-booking' className='btn mx-6'>All Users</Link>
-                                    <Link to='/admin' className='btn mx-6'>Admin panel</Link>
+                                    <Link to='/dasbord/admin' className='btn mx-6'>Admin panel</Link>
                                 </ul>
                                 {/* -----inside ui link droup-down menu end----- */}
                             </li>

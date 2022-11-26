@@ -19,30 +19,7 @@ const AddProduct = () => {
     // console.log(user);
 
     // ======================== if user seller then she/he access or add product=============================
-    const url = `http://localhost:5000/users/${user?.email}`;
 
-    //    --------- TenStand Query------------
-    const { data: sellerss = [], } = useQuery({
-        queryKey: ['sellerss'],
-        queryFn: async () => {
-            const res = await fetch(url);
-            const data = await res.json();
-            return data;
-        }
-    })
-
-    console.log(sellerss)
-
-
-    //   useEffect( () =>{
-
-    //       fetch(`http://localhost:5000/users/${user?.email}`)
-    //       .then(res => res.json())
-    //       .then(data => {
-    //         toast.success('catch email',data)
-    //       })
-
-    //   },[])
 
 
 
@@ -72,7 +49,7 @@ const AddProduct = () => {
             text: Cartitle,
             orginalPrice: orginalPrice,
             ResellPrice: resellPrice,
-            sellerName: name,
+            sellerName: user?.displayName,
             date: updateDate,
             location: locations,
             message: message,
@@ -80,7 +57,7 @@ const AddProduct = () => {
 
         }
 
-        // console.log(order)
+        console.log(order)
 
         fetch('http://localhost:5000/productAdd', {
             method: 'POST',
