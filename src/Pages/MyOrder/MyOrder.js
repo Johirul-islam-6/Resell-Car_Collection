@@ -10,22 +10,23 @@ import { AuthContext } from '../../Contexts/UseContext';
 const MyOrder = () => {
 
     const { user } = useContext(AuthContext);
-
+    console.log(user?.email);
     const { data: MyBookingCar = [] } = useQuery({
         queryKey: ['allBooking'],
         queryFn: async () => {
-            const res = await fetch(`https://assegnment-12-server-site.vercel.app/advertic/${user?.email}`);
+            const res = await fetch(`http://localhost:5000/bookings/${user?.email}`);
             const data = await res.json();
             return data;
         },
     })
-    // console.log(MyBookingCar);
+    console.log(MyBookingCar);
     const EiditeBtn = () => {
         toast.info('Eidite Panding ...')
     }
     // Delete btn
     const deleteBtn = (item) => {
         console.log(item)
+        toast.error('Delete panding....')
     }
 
     return (
@@ -36,7 +37,7 @@ const MyOrder = () => {
             {
                 !MyBookingCar?.length && <h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center'>User No <span className='text-amber-600'>Bookings Cars</span></h1>
             }
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 md:px-12 px-5 justify-center items-center">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 md:px-12 px-5 justify-center items-center mb-5">
                 {
                     MyBookingCar?.map((item, i) =>
                         <div key={i} className="max-w-lg p-4 shadow-md dark:bg-gray-900 dark:text-gray-100 rounded-lg">
@@ -111,7 +112,7 @@ const MyOrder = () => {
                                     <p className="leading-snug dark:text-gray-400">{item?.productText?.slice(0, 120)} More..</p>
                                     <div className="flex justify-center mt-3" >
 
-                                        <Link onClick={EiditeBtn}> <label className="btn md:px-12 bg-[#B2381B] hover:bg-[#cf4523]  my-2">edite product</label></Link>
+                                        <Link to={'/pement'}> <label className="btn md:px-12 bg-[#B2381B] hover:bg-[#cf4523]  my-2">Confram product</label></Link>
 
                                     </div>
                                 </div>

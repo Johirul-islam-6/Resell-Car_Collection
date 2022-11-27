@@ -6,7 +6,7 @@ import { AuthContext } from '../../Contexts/UseContext';
 const MyAppointment = () => {
 
     const { user } = useContext(AuthContext);
-    const url = `https://assegnment-12-server-site.vercel.app/booking?email=${user?.email}`;
+    const url = `http://localhost:5000/booking?email=${user?.email}`;
 
     //    --------- TenStand Query------------
     const { data: booking = [], } = useQuery({

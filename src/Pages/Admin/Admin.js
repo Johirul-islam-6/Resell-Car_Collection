@@ -7,7 +7,7 @@ const AllBookinPresent = () => {
 
     const { user } = useContext(AuthContext);
 
-    const url = `https://assegnment-12-server-site.vercel.app/users`;
+    const url = `http://localhost:5000/users`;
 
     //    --------- TenStand Query------------
     const { data: booking = [], } = useQuery({

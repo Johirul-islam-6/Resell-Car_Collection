@@ -6,7 +6,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 const AllProductImg = () => {
     const [imgss, setImg] = useState()
     useEffect(() => {
-        fetch(`https://assegnment-12-server-site.vercel.app/allProduct/`)
+        fetch(`http://localhost:5000/allProduct/`)
             .then(res => res.json())
             .then(data => {
                 setImg(data)

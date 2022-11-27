@@ -15,7 +15,7 @@ const Header = () => {
     const [sellerss, setSeller] = useState()
 
 
-    const url = `https://assegnment-12-server-site.vercel.app/users/${user?.email}`;
+    const url = `http://localhost:5000/users/${user?.email}`;
 
 
     const [loding, setLoding] = useState(true);
@@ -35,7 +35,7 @@ const Header = () => {
         <h1 className='mt-[100px] text-black text-4xl'>Loding</h1>
     }
 
-    console.log(sellerss)
+    // console.log(sellerss)
 
     const logoutBtn = () => {
         userLogOut()
@@ -57,9 +57,9 @@ const Header = () => {
                     <div className='hidden lg:block'>
                         <div className='flex'>
                             <Link to='/' className=" normal-case text-xl w-12">
-                                {/* <img className='w-12' src='https://i.ibb.co/ByrKpS1/download-removebg-preview.png' alt="" /> */}
+                                <img className='w-12' src='https://i.ibb.co/ByrKpS1/download-removebg-preview.png' alt="" />
                             </Link>
-                            {/* <Link to='/' className='mx-1 flex items-center font-bold text-2xl text-amber-500'>Resell.<span className='text-white text-[13px] mt-2'>shop</span></Link> */}
+                            <Link to='/' className='mx-1 flex items-center font-bold text-2xl text-amber-500'>Resell.<span className='text-white text-[13px] mt-2'>shop</span></Link>
                         </div>
                     </div>
                     {/* ------droup down -------------- */}
@@ -79,7 +79,7 @@ const Header = () => {
                                     </>
 
                                     :
-                                    <h1>hello</h1>
+                                    <Link to='/myOrder' className='btn mr-5'>My Order</Link>
                             }
 
                             <Link to='/block' className='btn'>Block</Link>

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -13,11 +13,37 @@ const UserBooking = () => {
     const { data: MyBookingCar = [] } = useQuery({
         queryKey: ['allBooking'],
         queryFn: async () => {
-            const res = await fetch(`https://assegnment-12-server-site.vercel.app/advertic/${user?.email}`);
+            const res = await fetch(`http://localhost:5000/advertic/${user?.email}`);
             const data = await res.json();
             return data;
         },
     })
+
+    // if serller kinba user 
+    const [sellerss, setSeller] = useState()
+    const url = `http://localhost:5000/users/${user?.email}`;
+
+
+    const [loding, setLoding] = useState(true);
+
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+
+                setSeller(data[0])
+                setLoding(false)
+            })
+
+    }, [user?.email])
+
+    if (loding) {
+        <h1 className='mt-[100px] text-black text-4xl'>Loding</h1>
+    }
+
+    // console.log(sellerss)
+
+
     // console.log(MyBookingCar);
     const EiditeBtn = () => {
         toast.info('Eidite Panding ...')
@@ -30,10 +56,13 @@ const UserBooking = () => {
     return (
         <>
             {
-                MyBookingCar.length && <h1 h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center'>User Bookings <span className='text-amber-600'>Resell Cars</span> Collection </h1>
+                MyBookingCar.length && < h1 h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center'>User Bookings <span className='text-amber-600'>Resell Cars</span> Collection </h1>
+
             }
             {
-                !MyBookingCar?.length && <h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center'>User No <span className='text-amber-600'>Bookings Cars</span></h1>
+                !MyBookingCar?.length && sellerss?.AccountType === "Seller Account" ? <h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center'>User No <span className='text-amber-600'>Bookings Cars</span></h1>
+                    :
+                    null
             }
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 md:px-12 px-5 justify-center items-center">
                 {

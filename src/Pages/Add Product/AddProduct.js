@@ -62,7 +62,7 @@ const AddProduct = () => {
 
         console.log(order)
 
-        fetch('https://assegnment-12-server-site.vercel.app/productAdd', {
+        fetch('http://localhost:5000/productAdd', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
