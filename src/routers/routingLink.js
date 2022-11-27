@@ -15,7 +15,7 @@ import Pement from "../Pages/Home/PementMethod/Pement";
 import AddProduct from "../Pages/Add Product/AddProduct";
 import MyProduct from "../Pages/My product/MyProduct";
 import Admin from '../Pages/Admin/Admin'
-
+//route setup
 const router = createBrowserRouter([
 
     {
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                // element: <Home></Home>
+                element: <Home></Home>
             },
             {
                 path: '/cetegories',
