@@ -14,7 +14,7 @@ const MyOrder = () => {
     const { data: MyBookingCar = [] } = useQuery({
         queryKey: ['allBooking'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/bookings/${user?.email}`);
+            const res = await fetch(`https://assegnment-12-server-site.vercel.app/bookings/${user?.email}`);
             const data = await res.json();
             return data;
         },
@@ -32,10 +32,10 @@ const MyOrder = () => {
     return (
         <>
             {
-                MyBookingCar.length && <h1 h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center'>User Bookings <span className='text-amber-600'>Resell Cars</span> Collection </h1>
+                MyBookingCar.length && <h1 h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center '>User Bookings <span className='text-amber-600'>Resell Cars</span> Collection </h1>
             }
             {
-                !MyBookingCar?.length && <h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center'>User No <span className='text-amber-600'>Bookings Cars</span></h1>
+                !MyBookingCar?.length && <h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center mt-[62px] h-[70vh]'>User No <span className='text-amber-600'>Bookings Cars</span></h1>
             }
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 md:px-12 px-5 justify-center items-center mb-5">
                 {

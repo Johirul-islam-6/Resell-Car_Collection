@@ -16,7 +16,7 @@ const MyProduct = () => {
     const { data: myProduct = [], isLoading } = useQuery({
         queryKey: ['myProduct'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/allProduct/${user?.email}`);
+            const res = await fetch(`https://assegnment-12-server-site.vercel.app/allProduct/${user?.email}`);
             const data = await res.json();
             return data;
         },
@@ -48,7 +48,7 @@ const MyProduct = () => {
         }
         console.log(advertic);
 
-        fetch('http://localhost:5000/advertic', {
+        fetch('https://assegnment-12-server-site.vercel.app/advertic', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

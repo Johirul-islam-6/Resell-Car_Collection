@@ -3,7 +3,6 @@ import React, { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-// import Logos from '../components/logo512.png'
 import { AuthContext } from '../Contexts/UseContext';
 
 
@@ -14,9 +13,7 @@ const Header = () => {
 
     const [sellerss, setSeller] = useState()
 
-
-    const url = `https://assegnment-12-server-site.vercel.app/${user?.email}`;
-
+    const url = `https://assegnment-12-server-site.vercel.app/users/${user?.email}`;
 
     const [loding, setLoding] = useState(true);
 
@@ -35,7 +32,7 @@ const Header = () => {
         <h1 className='mt-[100px] text-black text-4xl'>Loding</h1>
     }
 
-    // console.log(sellerss)
+    console.log(sellerss)
 
     const logoutBtn = () => {
         userLogOut()

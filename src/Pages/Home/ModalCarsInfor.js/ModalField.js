@@ -36,7 +36,7 @@ const ModalField = ({ bookItem, user, }) => {
         console.log(booking)
         //Fetch backin server site
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://assegnment-12-server-site.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

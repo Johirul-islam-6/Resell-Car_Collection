@@ -31,13 +31,13 @@ const router = createBrowserRouter([
             {
                 path: '/cetegories',
                 element: <CarCategori />,
-                // loader: ({ params }) => fetch(`http://localhost:5000/cetegories/${params.id}`)
+                // loader: ({ params }) => fetch(`https://assegnment-12-server-site.vercel.app/cetegories/${params.id}`)
 
             },
             {
                 path: '/cetegories/:id',
                 element: <PrivetRoute><CategorieID /></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/cetegories/${params.id}`)
+                loader: ({ params }) => fetch(`https://assegnment-12-server-site.vercel.app/cetegories/${params.id}`)
             },
             {
                 path: '/block',
@@ -78,15 +78,15 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dasbord',
-                element: <MyAppointment></MyAppointment>
+                element: <PrivetRoute><MyAppointment></MyAppointment></PrivetRoute>
             },
             {
                 path: '/dasbord/all-booking',
-                element: <AllBookinPresent></AllBookinPresent>
+                element: <PrivetRoute><AllBookinPresent></AllBookinPresent></PrivetRoute>
             },
             {
                 path: '/dasbord/admin',
-                element: <Admin></Admin>
+                element: <PrivetRoute><Admin></Admin></PrivetRoute>
             },
         ]
     }

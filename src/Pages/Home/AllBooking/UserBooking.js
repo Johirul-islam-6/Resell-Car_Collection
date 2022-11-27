@@ -8,12 +8,13 @@ import { AuthContext } from '../../../Contexts/UseContext';
 
 const UserBooking = () => {
 
+    const [loding, setLoding] = useState(true)
     const { user } = useContext(AuthContext);
 
-    const { data: MyBookingCar = [] } = useQuery({
+    const { data: MyBookingCar = [], isLoading } = useQuery({
         queryKey: ['allBooking'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/advertic/${user?.email}`);
+            const res = await fetch(`https://assegnment-12-server-site.vercel.app/advertic/${user?.email}`);
             const data = await res.json();
             return data;
         },
@@ -24,22 +25,23 @@ const UserBooking = () => {
     const url = `https://assegnment-12-server-site.vercel.app/${user?.email}`;
 
 
-    const [loding, setLoding] = useState(true);
-
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-
                 setSeller(data[0])
-                setLoding(false)
+                setLoding(false);
+
             })
 
-    }, [user?.email])
+    }, [])
 
-    if (loding) {
-        <h1 className='mt-[100px] text-black text-4xl'>Loding</h1>
+    if (isLoading) {
+        return <div className="flex h-[60vh] justify-center items-center ">
+            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div>
+        </div>
     }
+
 
     // console.log(sellerss)
 
@@ -56,7 +58,7 @@ const UserBooking = () => {
     return (
         <>
             {
-                MyBookingCar.length && < h1 h1 className='text-4xl text-gray-700 text-bold font-mono py-5 text-center'>User Bookings <span className='text-amber-600'>Resell Cars</span> Collection </h1>
+                MyBookingCar.length && < h1 h1 className='md:text-4xl text-2xl  text-gray-700 text-bold font-mono py-5 text-center'>Seller Product Eidite <span className='text-amber-600'>Resell Cars</span> Collection </h1>
 
             }
             {
@@ -64,6 +66,7 @@ const UserBooking = () => {
                     :
                     null
             }
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 md:px-12 px-5 justify-center items-center">
                 {
                     MyBookingCar?.map((item, i) =>
@@ -150,6 +153,7 @@ const UserBooking = () => {
                     )
                 }
             </div>
+
         </>
     );
 };

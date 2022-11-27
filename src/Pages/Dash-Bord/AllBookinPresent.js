@@ -7,7 +7,7 @@ const AllBookinPresent = () => {
 
     const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/users`;
+    const url = `https://assegnment-12-server-site.vercel.app/users`;
 
     //    --------- TenStand Query------------
     const { data: booking = [], } = useQuery({
@@ -32,7 +32,6 @@ const AllBookinPresent = () => {
                             <th></th>
                             <th>Name/email</th>
                             <th>Account type</th>
-                            <th>admin</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,9 +48,6 @@ const AllBookinPresent = () => {
                                     </div>
                                 </td>
                                 <td className='text-sky-600'>{bok?.AccountType}</td>
-                                <td className='text-teal-500'><button className='btn hover:bg-gray-500'>Admin</button></td>
-
-
 
                             </tr>
 
