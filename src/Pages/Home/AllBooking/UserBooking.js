@@ -21,7 +21,7 @@ const UserBooking = () => {
 
     // if serller kinba user 
     const [sellerss, setSeller] = useState()
-    const url = `http://localhost:5000/users/${user?.email}`;
+    const url = `https://assegnment-12-server-site.vercel.app/${user?.email}`;
 
 
     const [loding, setLoding] = useState(true);
