@@ -15,6 +15,7 @@ import Pement from "../Pages/Home/PementMethod/Pement";
 import AddProduct from "../Pages/Add Product/AddProduct";
 import MyProduct from "../Pages/My product/MyProduct";
 import Admin from '../Pages/Admin/Admin'
+import MyOrder from "../Pages/MyOrder/MyOrder";
 //route setup
 const router = createBrowserRouter([
 
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
             {
                 path: '/myProduct',
                 element: <PrivetRoute><MyProduct /></PrivetRoute>
+            },
+            {
+                path: '/myOrder',
+                element: <PrivetRoute><MyOrder /></PrivetRoute>
             },
             {
                 path: '/pement',

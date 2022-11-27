@@ -17,24 +17,23 @@ const Header = () => {
 
     const url = `https://assegnment-12-server-site.vercel.app/users/${user?.email}`;
 
-    //    --------- TenStand Query------------
-    // const { data: seller = [], } = useQuery({
-    //     queryKey: ['seller', user],
-    //     queryFn: async () => {
-    //         const res = await fetch(url);
-    //         const data = await res.json();
-    //         return data;
-    //     }
-    // })
+
+    const [loding, setLoding] = useState(true);
 
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                setSeller(data)
+
+                setSeller(data[0])
+                setLoding(false)
             })
 
     }, [user?.email])
+
+    if (loding) {
+        <h1 className='mt-[100px] text-black text-4xl'>Loding</h1>
+    }
 
     console.log(sellerss)
 
@@ -47,6 +46,7 @@ const Header = () => {
             .catch(error => console.log(error))
     }
 
+
     return (
         <>
 
@@ -57,9 +57,9 @@ const Header = () => {
                     <div className='hidden lg:block'>
                         <div className='flex'>
                             <Link to='/' className=" normal-case text-xl w-12">
-                                <img className='w-12' src='https://i.ibb.co/ByrKpS1/download-removebg-preview.png' alt="" />
+                                {/* <img className='w-12' src='https://i.ibb.co/ByrKpS1/download-removebg-preview.png' alt="" /> */}
                             </Link>
-                            <Link to='/' className='mx-1 flex items-center font-bold text-2xl text-amber-500'>Resell.<span className='text-white text-[13px] mt-2'>shop</span></Link>
+                            {/* <Link to='/' className='mx-1 flex items-center font-bold text-2xl text-amber-500'>Resell.<span className='text-white text-[13px] mt-2'>shop</span></Link> */}
                         </div>
                     </div>
                     {/* ------droup down -------------- */}
@@ -72,16 +72,14 @@ const Header = () => {
                             <Link to='/cetegories' className='btn'>Car Cetagoris</Link>
                             <Link to='/dasbord/all-booking' className='btn'>All Users</Link>
                             {
-                                user?.uid ?
+                                user?.uid && sellerss?.AccountType === "Seller Account" ?
                                     <>
                                         <Link to='/addProduct' className='btn mr-5'>Add products</Link>
                                         <Link to='/myProduct' className='btn mr-5'>My Product</Link>
                                     </>
 
-
-
                                     :
-                                    <h1></h1>
+                                    <h1>hello</h1>
                             }
 
                             <Link to='/block' className='btn'>Block</Link>
@@ -117,16 +115,14 @@ const Header = () => {
                             <Link to='/cetegories' className='btn mr-5'>Car Cetagoris</Link>
 
                             {
-                                user?.uid ?
+                                user?.uid && sellerss?.AccountType === "Seller Account" ?
                                     <>
                                         <Link to='/addProduct' className='btn mr-5'>Add products</Link>
                                         <Link to='/myProduct' className='btn mr-5'>My Product</Link>
                                     </>
 
-
-
                                     :
-                                    <h1></h1>
+                                    <Link to='/myOrder' className='btn mr-5'>My Order</Link>
                             }
 
                             <li tabIndex={0} className=''>
